@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>దరఖాస్తు స్థితి - Sahayata Report</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a href="index.html" style="float: left; text-decoration: none; color: var(--color-primary); font-size: 1.2em;">
+            <span class="material-icons" style="vertical-align: middle;">arrow_back</span> వెనుకకు (Back)
+        </a>
+        <h1>పాత్రత తనిఖీ (Eligibility Check)</h1>
+        <p class="motto">ప్రతి నిర్ణయానికి స్పష్టమైన కారణం.</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="step-section">
+        <h2>వర్గం ఎంపిక (Select Category)</h2>
+        <p>ఒక్క ఎంచుకోండి — ఈ వెబ్ పేజీలో 9 ప్రధాన వర్గాలు ఉన్నాయి.</p>
+
+        <div class="scheme-grid">
+
+            <div class="scheme-card" onclick="selectCategory(this,'Raithu_Bandhu')">
+                <div class="scheme-card-icon">🌾</div>
+                <h3>రైతులు (Raithu Bandhu)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Women_Children')">
+                <div class="scheme-card-icon">👩‍👧</div>
+                <h3>మహిళలు & పిల్లలు (Women & Children)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Aasara_Pension')">
+                <div class="scheme-card-icon">👴</div>
+                <h3>పెద్దవారు (Aasara Pension)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Gruha_Nirmanam')">
+                <div class="scheme-card-icon">🏠</div>
+                <h3>ఇల్లు & ఆశ్రయం (Housing)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Education')">
+                <div class="scheme-card-icon">📚</div>
+                <h3>విద్య & నైపుణ్యాలు (Education)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Arogya_Sri')">
+                <div class="scheme-card-icon">🏥</div>
+                <h3>ఆరోగ్యం (Arogya Sri)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Employment')">
+                <div class="scheme-card-icon">💼</div>
+                <h3>ఉద్యోగాలు (Employment)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Disability')">
+                <div class="scheme-card-icon">♿</div>
+                <h3>వికలాంగులు (Disability)</h3>
+            </div>
+
+            <div class="scheme-card" onclick="selectCategory(this,'Mother_Child')">
+                <div class="scheme-card-icon">🚼</div>
+                <h3>తల్లి & శిశు సంరక్షణ (Mother & Child)</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="eligibility-form">
+        <div class="step-section">
+            <h2>2. మీ పత్రాలను అప్‌లోడ్ చేయండి / Upload CSV</h2>
+            <p>CSV headers: <strong>name,income,attendance,age,marks,land_document_present,medical_certificate_present</strong></p>
+
+            <input type="file" id="csvFile" accept=".csv">
+            <p style="font-size:0.9em;color:#6c757d;margin-top:6px;">You can use the sample CSV (download from project) for testing.</p>
+        </div>
+
+        <div style="text-align:center;margin-top:12px;">
+            <button class="submit" id="submitBtn" data-scheme="">Submit</button>
+        </div>
+
+        <section class="status-section" style="margin-top:30px;">
+            <h2>ఫలితాలు / Results</h2>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>పేర (Name)</th>
+                        <th>స్థితి (Status)</th>
+                        <th>నిర్ణయ సాందర్భం (Probability)</th>
+                        <th>కారణం (Reasons — Telugu (English))</th>
+                        <th>Receipt</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                </tbody>
+            </table>
+        </section>
+    </section>
+
+</div>
+
+<footer>
+    <p style="text-align: center; margin-top: 50px; padding: 10px; background-color: #e9ecef;">
+        Sahayata Report - ప్రభుత్వ పథకాలపై పారదర్శకతను అందించడం.
+    </p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function selectCategory(el, code) {
+    // visual highlight
+    document.querySelectorAll('.scheme-card').forEach(c=>{ c.style.border='none'; c.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'; });
+    el.style.border='3px solid var(--color-accent)';
+    el.style.boxShadow='0 0 10px var(--color-accent)';
+    // set scheme both on button dataset and body
+    document.getElementById('submitBtn').dataset.scheme = code;
+}
+</script>
+</body>
+</html>
