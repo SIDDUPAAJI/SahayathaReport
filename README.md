@@ -29,20 +29,20 @@ StructurePlaintextsahayata-report/
 
 #Installation and Setup
 
----Clone the Repository---
+Clone the Repository
 Bashgit clone https://github.com/yourusername/sahayata-report.git
 cd sahayata-report
 
----Initialize Virtual Environment---
+Initialize Virtual Environment
 Bashpython -m venv venv
 source venv/bin/activate  # MacOS/Linux
-# OR
+OR
 venv\Scripts\activate     # Windows
 
----Install Dependencies---
+Install Dependencies
 Bashpip install -r requirements.txt
 
----Launch the ApplicationBash---
+Launch the ApplicationBash
 streamlit run src/app.py
 
 
@@ -52,4 +52,4 @@ Model Inference: The system executes eligibility checks across the dataset in pa
 Interpretability Pass: SHAP values are computed to identify the primary drivers behind each individual outcome.
 Receipt Distribution: The system generates a comprehensive ZIP archive containing individual PDF "Decision Receipts" for digital or physical distribution.
 
----Academic and Regulatory SignificanceThis project implements the principle of the "Right to Explanation" as advocated in contemporary data protection frameworks. By applying Shapley Value concepts from cooperative game theory to public welfare, Sahayata Report demonstrates that computational efficiency in governance can be achieved without compromising institutional accountability or citizen rights.
+Academic and Regulatory SignificanceThis project implements the principle of the "Right to Explanation" as advocated in contemporary data protection frameworks. By applying Shapley Value concepts from cooperative game theory to public welfare, Sahayata Report demonstrates that computational efficiency in governance can be achieved without compromising institutional accountability or citizen rights.
